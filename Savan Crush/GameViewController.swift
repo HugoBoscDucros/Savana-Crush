@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Landscape  //AllButUpsideDown.rawValue
+        return UIInterfaceOrientationMask.Portrait  //AllButUpsideDown.rawValue
     }
     
     
@@ -62,6 +62,7 @@ class GameViewController: UIViewController {
         movesLeft = level.maximumMoves
         score = 0
         updateLabels()
+        level.resetComboMultiplier()
         shuffle()
     }
     
@@ -113,12 +114,18 @@ class GameViewController: UIViewController {
     func beginNextTurn() {
         level.detectPossibleSwaps()
         view.userInteractionEnabled = true
+        decrementMoves()
     }
     
     func updateLabels() {
         targetLabel.text = String(format: "%ld", level.targetScore)
         movesLabel.text = String(format: "%ld", movesLeft)
         scoreLabel.text = String(format: "%ld", score)
+    }
+    
+    func decrementMoves() {
+        --movesLeft
+        updateLabels()
     }
     
 }

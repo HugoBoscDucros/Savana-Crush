@@ -15,6 +15,8 @@ let NumRows = 9
 
 class Level {
     
+    private var comboMultiplier = 0
+    
     var targetScore = 0
     var maximumMoves = 0
     
@@ -339,8 +341,13 @@ class Level {
     private func calculateScores(chains: Set<Chain>) {
         // 3-chain is 60 pts, 4-chain is 120, 5-chain is 180, and so on
         for chain in chains {
-            chain.score = 60 * (chain.length - 2)
+            chain.score = 60 * (chain.length - 2) * comboMultiplier
+            ++comboMultiplier
         }
+    }
+    
+    func resetComboMultiplier() {
+        comboMultiplier = 1
     }
     
 }
