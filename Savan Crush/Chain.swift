@@ -9,6 +9,9 @@
 import Foundation
 
 class Chain: Hashable, CustomStringConvertible {
+    
+    var score = 0
+    
     var cookies = [Cookie]()
     
     enum ChainType: CustomStringConvertible {
