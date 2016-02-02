@@ -8,8 +8,11 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 class GameViewController: UIViewController {
+    
+    var tapGestureRecognizer: UITapGestureRecognizer!
 
     var scene: GameScene!
     var level: Level!
@@ -20,6 +23,21 @@ class GameViewController: UIViewController {
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var gameOverPanel: UIImageView!
+    @IBOutlet weak var shuffleButton: UIButton!
+    
+    lazy var backgroundMusic: AVAudioPlayer = {
+        let url = NSBundle.mainBundle().URLForResource("Mining by Moonlight", withExtension: "mp3")
+        var player = AVAudioPlayer()
+        do {
+            player = try AVAudioPlayer(contentsOfURL: url!, fileTypeHint: nil)
+        } catch {
+            //
+        }
+        
+        player.numberOfLoops = -1
+        return player
+        }()
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -45,6 +63,7 @@ class GameViewController: UIViewController {
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         scene.swipeHandler = handleSwipe
+        gameOverPanel.hidden = true
         
         // Present the scene.
         skView.presentScene(scene)
@@ -52,6 +71,8 @@ class GameViewController: UIViewController {
         level = Level(filename: "Level_1")
         scene.level = level
         scene.addTiles()
+        
+        backgroundMusic.play()
         
         beginGame()
     }
@@ -63,10 +84,14 @@ class GameViewController: UIViewController {
         score = 0
         updateLabels()
         level.resetComboMultiplier()
+        scene.animateBeginGame() {
+            self.shuffleButton.hidden = false
+        }
         shuffle()
     }
     
     func shuffle() {
+        scene.removeAllCookieSprites()
         let newCookies = self.level.shuffle()
         scene.addSpritesForCookies(newCookies)
     }
@@ -126,6 +151,39 @@ class GameViewController: UIViewController {
     func decrementMoves() {
         --movesLeft
         updateLabels()
+        if score >= level.targetScore {
+            gameOverPanel.image = UIImage(named: "LevelComplete")
+            showGameOver()
+        } else if movesLeft == 0 {
+            gameOverPanel.image = UIImage(named: "GameOver")
+            showGameOver()
+        }
+    }
+    
+    func showGameOver() {
+        gameOverPanel.hidden = false
+        scene.userInteractionEnabled = false
+        shuffleButton.hidden = true
+        
+        scene.animateGameOver() {
+            self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideGameOver")
+            self.view.addGestureRecognizer(self.tapGestureRecognizer)
+        }
+    }
+    
+    func hideGameOver() {
+        view.removeGestureRecognizer(tapGestureRecognizer)
+        tapGestureRecognizer = nil
+        
+        gameOverPanel.hidden = true
+        scene.userInteractionEnabled = true
+        
+        beginGame()
+    }
+    
+    @IBAction func shuffleButtonPressed(sender:AnyObject) {
+        shuffle()
+        decrementMoves()
     }
     
 }

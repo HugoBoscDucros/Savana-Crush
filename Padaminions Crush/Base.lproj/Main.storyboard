@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -77,34 +78,69 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4KT-mF-AoI">
+                                <rect key="frame" x="0.0" y="254" width="375" height="160"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4KT-mF-AoI" secondAttribute="height" multiplier="75:32" id="eN7-D3-F4X"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51T-tV-PrC">
+                                <rect key="frame" x="138" y="611" width="99" height="36"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="51T-tV-PrC" secondAttribute="height" multiplier="11:4" id="Ihp-0r-9Y5"/>
+                                    <constraint firstAttribute="height" constant="36" id="tTS-Ef-i6L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Shuffle" backgroundImage="Button"/>
+                                <connections>
+                                    <action selector="shuffleButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="vN5-ss-7S1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <constraints>
                             <constraint firstItem="TCZ-5T-R0g" firstAttribute="leading" secondItem="Q66-yX-1Qx" secondAttribute="trailing" constant="17" id="1Uw-F8-EBS"/>
                             <constraint firstItem="Pcp-Wt-dmG" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" id="3m2-TO-D5r"/>
                             <constraint firstItem="HD5-xf-27b" firstAttribute="leading" secondItem="Pcp-Wt-dmG" secondAttribute="trailing" constant="18" id="7Z8-g2-Nut"/>
+                            <constraint firstItem="4KT-mF-AoI" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="7bP-YK-yj1"/>
                             <constraint firstItem="P5V-Fe-K2V" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="8kC-de-tAH"/>
                             <constraint firstItem="HD5-xf-27b" firstAttribute="width" secondItem="P5V-Fe-K2V" secondAttribute="width" id="B6R-ZI-p4E"/>
                             <constraint firstItem="Q66-yX-1Qx" firstAttribute="width" secondItem="P5V-Fe-K2V" secondAttribute="width" id="Cgo-KQ-SQQ"/>
                             <constraint firstItem="HD5-xf-27b" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailingMargin" id="Dyy-DH-Tn3"/>
                             <constraint firstItem="HD5-xf-27b" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" id="Fth-Zw-8jB"/>
                             <constraint firstItem="Q66-yX-1Qx" firstAttribute="top" secondItem="P5V-Fe-K2V" secondAttribute="bottom" constant="8" id="Jkq-ql-cP4"/>
+                            <constraint firstItem="51T-tV-PrC" firstAttribute="centerX" secondItem="4KT-mF-AoI" secondAttribute="centerX" id="QIa-8J-bjL"/>
                             <constraint firstItem="8iS-Tx-TuE" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailingMargin" id="SBX-0d-Sc7"/>
+                            <constraint firstAttribute="trailing" secondItem="4KT-mF-AoI" secondAttribute="trailing" id="VpH-56-1Gm"/>
                             <constraint firstItem="Pcp-Wt-dmG" firstAttribute="leading" secondItem="P5V-Fe-K2V" secondAttribute="trailing" constant="17" id="ZLP-oh-18T"/>
                             <constraint firstItem="Pcp-Wt-dmG" firstAttribute="width" secondItem="P5V-Fe-K2V" secondAttribute="width" id="bar-Oq-3Gd"/>
+                            <constraint firstItem="4KT-mF-AoI" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="c3Y-ay-b7X"/>
                             <constraint firstItem="8iS-Tx-TuE" firstAttribute="top" secondItem="HD5-xf-27b" secondAttribute="bottom" constant="8" id="eHN-cc-9nm"/>
                             <constraint firstItem="8iS-Tx-TuE" firstAttribute="width" secondItem="P5V-Fe-K2V" secondAttribute="width" id="hqP-jb-Zze"/>
+                            <constraint firstItem="4KT-mF-AoI" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="kdc-Hg-aqq"/>
                             <constraint firstItem="TCZ-5T-R0g" firstAttribute="top" secondItem="Pcp-Wt-dmG" secondAttribute="bottom" constant="8" id="mh4-jG-oAa"/>
                             <constraint firstItem="8iS-Tx-TuE" firstAttribute="leading" secondItem="TCZ-5T-R0g" secondAttribute="trailing" constant="18" id="qta-6R-PK5"/>
+                            <constraint firstAttribute="trailing" secondItem="4KT-mF-AoI" secondAttribute="trailing" id="sm8-Yl-Y8e"/>
                             <constraint firstItem="TCZ-5T-R0g" firstAttribute="width" secondItem="P5V-Fe-K2V" secondAttribute="width" id="toH-8X-oEB"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="51T-tV-PrC" secondAttribute="bottom" constant="20" id="y9i-Ty-mNG"/>
                             <constraint firstItem="Q66-yX-1Qx" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="yf3-9y-PeJ"/>
                             <constraint firstItem="P5V-Fe-K2V" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" id="zYG-jw-BmE"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="c3Y-ay-b7X"/>
+                                <exclude reference="sm8-Yl-Y8e"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="gameOverPanel" destination="4KT-mF-AoI" id="JZI-EC-SZf"/>
                         <outlet property="movesLabel" destination="8iS-Tx-TuE" id="aRT-qP-8gT"/>
                         <outlet property="scoreLabel" destination="TCZ-5T-R0g" id="Jnl-FH-B0D"/>
+                        <outlet property="shuffleButton" destination="51T-tV-PrC" id="QbP-Rj-MEC"/>
                         <outlet property="targetLabel" destination="Q66-yX-1Qx" id="OSW-hK-ske"/>
                     </connections>
                 </viewController>
@@ -113,4 +149,7 @@
             <point key="canvasLocation" x="244.5" y="252.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Button" width="100" height="36"/>
+    </resources>
 </document>

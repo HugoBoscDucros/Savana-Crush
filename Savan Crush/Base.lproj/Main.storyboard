@@ -59,12 +59,25 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pDH-U5-7Pn">
+                                <rect key="frame" x="146" y="108" width="375" height="160"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="AKM-bf-yp0"/>
+                                    <constraint firstAttribute="height" constant="160" id="Lzi-TW-DJu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
+                        <constraints>
+                            <constraint firstItem="pDH-U5-7Pn" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="etv-hF-Gqu"/>
+                            <constraint firstItem="pDH-U5-7Pn" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="llB-50-Pay"/>
+                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="gameOverPanel" destination="pDH-U5-7Pn" id="sLE-K4-zgT"/>
                         <outlet property="movesLabel" destination="ctO-nl-Btx" id="8xS-Ku-cOv"/>
                         <outlet property="scoreLabel" destination="IwB-bA-xag" id="d4o-Zs-gDN"/>
                         <outlet property="targetLabel" destination="M7N-zf-pQB" id="VQk-Vi-X9Z"/>
