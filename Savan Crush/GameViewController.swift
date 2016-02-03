@@ -12,6 +12,8 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
+    var levelNumber = 1
+    
     var tapGestureRecognizer: UITapGestureRecognizer!
 
     var scene: GameScene!
@@ -68,7 +70,7 @@ class GameViewController: UIViewController {
         // Present the scene.
         skView.presentScene(scene)
         
-        level = Level(filename: "Level_1")
+        level = Level(filename: "Level_\(self.levelNumber)")
         scene.level = level
         scene.addTiles()
         
@@ -152,12 +154,20 @@ class GameViewController: UIViewController {
         --movesLeft
         updateLabels()
         if score >= level.targetScore {
+            self.levelNumber++
             gameOverPanel.image = UIImage(named: "LevelComplete")
             showGameOver()
         } else if movesLeft == 0 {
             gameOverPanel.image = UIImage(named: "GameOver")
             showGameOver()
         }
+    }
+    
+    func loadLevel() {
+        level = Level(filename: "Level_\(self.levelNumber)")
+        scene.level = level
+        
+        scene.addTiles()
     }
     
     func showGameOver() {
@@ -177,7 +187,9 @@ class GameViewController: UIViewController {
         
         gameOverPanel.hidden = true
         scene.userInteractionEnabled = true
-        
+        if gameOverPanel.image == UIImage(named: "LevelComplete") {
+            loadLevel()
+        }
         beginGame()
     }
     
