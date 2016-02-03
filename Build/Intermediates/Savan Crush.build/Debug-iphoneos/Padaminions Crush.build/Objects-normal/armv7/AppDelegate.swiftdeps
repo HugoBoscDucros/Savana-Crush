@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C17Padaminions_Crush11AppDelegate", ""]
 provides-dynamic-lookup:
-- "window"
-- "applicationDidBecomeActive"
-- "applicationWillTerminate"
-- "applicationWillResignActive"
 - "applicationWillEnterForeground"
 - "application"
 - "applicationDidEnterBackground"
+- "window"
+- "applicationWillResignActive"
+- "applicationWillTerminate"
+- "applicationDidBecomeActive"
 depends-top-level:
-- "UIResponder"
-- "UIWindow"
-- "Bool"
 - "UIApplicationDelegate"
-- "UIApplication"
-- !private "BooleanLiteralType"
-- "AppDelegate"
 - "AnyObject"
+- "UIApplication"
+- "Bool"
+- "AppDelegate"
+- !private "BooleanLiteralType"
+- "UIWindow"
+- "UIResponder"
 - "NSObject"
 depends-member:
 - ["PSs9AnyObject", "application"]

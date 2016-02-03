@@ -7,10 +7,10 @@ provides-member:
 - ["V17Padaminions_Crush7Array2D", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Int"
-- "Array"
-- "Array2D"
 - !private "*"
+- "Int"
+- "Array2D"
+- "Array"
 - !private "+"
 depends-member:
 - !private ["Sa", "Generator"]

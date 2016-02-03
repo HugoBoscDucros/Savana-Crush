@@ -8,18 +8,18 @@ provides-member:
 - ["V17Padaminions_Crush4Swap", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Int"
-- "Bool"
-- "Hashable"
-- !private "||"
-- "Cookie"
-- !private "^"
-- !private "&&"
-- "=="
-- "Swap"
 - "CustomStringConvertible"
+- !private "^"
+- "Swap"
+- "Hashable"
 - "String"
+- "Int"
+- "=="
+- "Bool"
+- "Cookie"
+- !private "||"
 - !private "StringLiteralType"
+- !private "&&"
 depends-member:
 - !private ["PSs9AnyObject", "hashValue"]
 - !private ["PSs9AnyObject", "init"]

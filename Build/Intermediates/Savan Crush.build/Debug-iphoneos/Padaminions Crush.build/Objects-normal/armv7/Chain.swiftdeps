@@ -10,17 +10,17 @@ provides-member:
 - ["OC17Padaminions_Crush5Chain9ChainType", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Int"
 - "Bool"
 - !private "^"
+- "CustomStringConvertible"
+- "Int"
 - !private "-"
-- "Hashable"
 - "FloatLiteralType"
 - "Chain"
 - "Cookie"
 - "=="
-- "CustomStringConvertible"
 - "IntegerLiteralType"
+- "Hashable"
 - "String"
 - !private "StringLiteralType"
 depends-member:

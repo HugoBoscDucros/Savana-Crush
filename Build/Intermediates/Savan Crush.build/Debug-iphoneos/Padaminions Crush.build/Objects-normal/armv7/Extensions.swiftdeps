@@ -6,17 +6,17 @@ provides-member:
 - ["VSs10Dictionary", "loadJSONFromBundle"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Dictionary"
-- !private "NSData"
-- !private "NSBundle"
 - !private "StringLiteralType"
-- "AnyObject"
-- !private "NSDataReadingOptions"
+- "Dictionary"
+- !private "NSBundle"
 - !private "NSJSONSerialization"
-- !private "print"
-- "String"
 - !private "NSJSONReadingOptions"
+- "AnyObject"
+- "String"
+- !private "print"
 - !private "NSDictionary"
+- !private "NSDataReadingOptions"
+- !private "NSData"
 depends-member:
 - !private ["PSs9AnyObject", "JSONObjectWithData"]
 - !private ["PSs9AnyObject", "init"]
