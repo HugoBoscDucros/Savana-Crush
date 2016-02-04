@@ -101,6 +101,7 @@ class GameScene: SKScene {
     }
     
     func addTiles() {
+        tilesLayer.removeAllChildren()
         for row in 0..<NumRows {
             for column in 0..<NumColumns {
                 if (level.tileAtColumn(column, row: row) != nil) {

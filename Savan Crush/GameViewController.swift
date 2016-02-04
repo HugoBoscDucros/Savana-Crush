@@ -12,7 +12,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
-    var levelNumber = 1
+    var levelNumber = 0
     
     var tapGestureRecognizer: UITapGestureRecognizer!
 
